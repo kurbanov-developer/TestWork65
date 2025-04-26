@@ -31,7 +31,7 @@ class City_Temperature_Widget extends WP_Widget {
         $lat = get_post_meta($city_id, '_latitude', true);
         $lon = get_post_meta($city_id, '_longitude', true);
 
-        $api_key = 'YOUR_OPENWEATHERMAP_API_KEY';
+        $api_key = 'API_KEY';
         $response = wp_remote_get("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&units=metric&appid=$api_key");
 
         if (!is_wp_error($response)) {

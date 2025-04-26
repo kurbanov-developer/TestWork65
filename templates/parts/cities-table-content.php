@@ -19,8 +19,10 @@ foreach ($results as $row) {
     $temp = 'N/A';
 
     if ($lat && $lon) {
-        $api_key = 'YOUR_OPENWEATHERMAP_API_KEY';
+        $api_key = 'API_KEY';
         $response = wp_remote_get("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&units=metric&appid=$api_key");
+
+
         if (!is_wp_error($response)) {
             $data = json_decode(wp_remote_retrieve_body($response));
             $temp = $data->main->temp ?? 'N/A';
